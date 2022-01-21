@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Type Master</title>
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="header">
+      <h2>Type Master</h2>
+      <div class="settingsBox">
+        <button class="ChangeText" id="ChangeText">Change Text</button>
+        <select value="Load" class="settings" id="settings">
+          <option selected value="HR">Home Row</option>
+          <option value="FKB">Full Key Board</option>
+          <option value="RQ">Random Quote</option>
+        </select>
+      </div>
+    </div>
+    <div class="content">
+      <div class="container">
+        <div id="quoteDisplay" class="quoteDisplay"></div>
+        <textarea
+          id="quoteInput"
+          class="quoteInput"
+          type="text"
+          placeholder="Start Typing Here"
+        ></textarea>
+      </div>
+    </div>
+    <script defer src="script.js"></script>
+  </body>
+</html>
