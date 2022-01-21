@@ -4,49 +4,140 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin: 0px;
 }
-
+.logo {
+  color: #78aedb;
+  font-size: 25px;
+  font-family: monospace;
+}
+@media only screen and (max-width: 600px) {
+  .logo {
+    text-align: center;
+    width: 100%;
+  }
+}
 .header {
+  padding-bottom: 10px;
+  width: 100%;
+  background: #fcfcfc;
+  box-shadow: #d0e8ff 2px 4px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: baseline;
+}
+.Timer {
+  color: #6db8ff;
+  font-size: 20px;
+  padding-top: 10px;
+}
+.KeyBoard {
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
-  flex-direction: column;
   align-items: center;
+  height: 150px;
+  justify-content: center;
+}
+.ScoreBox {
+  display: flex;
+  width: 100%;
+  margin: 10px;
+  align-items: center;
+  justify-content: flex-end;
+}
+.Score {
+  border: 3px solid #5381a7;
+  color: rgb(61, 61, 61);
+  box-shadow: white 0px 0px 5px;
+  background: white;
+  padding: 2px;
+  border-radius: 5px;
+  margin: 10px;
+  width: 100px;
+  display: flex;
+  font-weight: bold;
+  font-size: 14px;
+  justify-content: space-evenly;
+  margin-top: 0px;
+}
+.key {
+  font-size: 14px;
+  opacity: 0;
+  font-weight: bold;
+  transition: opacity 225ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: block;
+  padding: 12px 42px;
+  border-radius: 12px;
+
+  background: #78aedb;
+  color: white;
+  transform: translateY(-6px);
+}
+.OffsetBG {
+  opacity: 0%;
+  background: #8fc6fa;
+  border-radius: 12px;
+  border: none;
+  padding: 0;
+  height: 40px;
+
+  outline-offset: 4px;
+}
+
+.fade {
+  opacity: 1;
+  transition: opacity 100ms cubic-bezier(0.55, 0.085, 0.68, 0.53);
 }
 .container {
   background-color: #78aedb;
   box-shadow: 2px 2px 10px;
   padding: 1rem;
+
   border-radius: 0.5rem;
   width: 700px;
   max-width: 90%;
 }
 .content {
   display: flex;
+  width: 100%;
+
   justify-content: center;
   align-items: center;
 }
 .quoteDisplay {
-  font-size: 15px;
-  color: white;
-  letter-spacing: 2px;
+  font-size: 18px;
+
+  letter-spacing: 2.5px;
   line-height: 30px;
   margin-bottom: 1rem;
+
+  color: grey;
   margin-left: calc(1rem + 2px);
   margin-right: calc(1rem + 2px);
 }
+.OuterQuote {
+  height: 100%;
+  border-radius: 10px;
+  background: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
 .settings {
   width: 50%;
-  margin: 10px;
+  background: transparent;
+  border: none;
   height: 30px;
+  border: 2px solid #e9e9e9;
+  border-radius: 5px;
   text-align: center;
 }
 
 .quoteInput {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 15px;
-  letter-spacing: 2px;
+  font-size: 18px;
+  letter-spacing: 2.5px;
   line-height: 30px;
   border-radius: 5px;
   background: #5381a7;
@@ -86,7 +177,6 @@ body {
   width: 70%;
   justify-content: space-evenly;
   align-items: center;
-  margin-bottom: 40px;
 }
 .quoteInput[type="text"]:focus {
   height: 8rem;
@@ -95,10 +185,10 @@ body {
   caret-color: black;
 }
 .correct {
-  font-weight: bold;
   color: rgb(18, 79, 119);
 }
 .incorrect {
   text-decoration: underline;
+  font-weight: bold;
   color: rgb(150, 26, 26);
 }
