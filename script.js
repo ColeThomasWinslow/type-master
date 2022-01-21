@@ -51,19 +51,19 @@ function GetFullKeyBoardString() {
 }
 
 // Random Quote
-// async function GetRandomQuote() {
-//   const Text = await fetch(Quote_URL)
-//     .then((response) => response.json())
-//     .then((data) => data.content);
-//   console.log(Text);
-//   return Text;
-// }
-console.log(settingsSelect.value);
+function GetRandomQuote() {
+  return fetch(Quote_URL)
+    .then((response) => response.json())
+    .then((data) => data.content);
+}
+
 // Function to render a new text
-function renderNewQuote() {
+async function renderNewQuote() {
+  const QuoteFromAPI = await GetRandomQuote();
   settingsSelect.addEventListener("change", (e) => {
     const selection = e.target.value;
     quoteDisplay.innerText = "";
+
     switch (selection) {
       case "HR":
         quote = GetHomeRow();
@@ -71,9 +71,12 @@ function renderNewQuote() {
       case "FKB":
         quote = GetFullKeyBoardString();
         break;
-      //   case "RQ":
-      //     quote = GetRandomQuote();
+      case "RQ":
+        quote = QuoteFromAPI;
+        break;
     }
+
+    console.log("quote", quote);
     quote.split("").forEach((character) => {
       const characterSpan = document.createElement("span");
       characterSpan.innerText = character;
@@ -82,7 +85,10 @@ function renderNewQuote() {
     quoteInput.value = null;
   });
 }
-function ChangeText() {
+
+// Get New Text
+async function ChangeText() {
+  const QuoteFromAPI = await GetRandomQuote();
   const selection = settingsSelect.value;
   quoteDisplay.innerText = "";
   switch (selection) {
@@ -92,8 +98,9 @@ function ChangeText() {
     case "FKB":
       quote = GetFullKeyBoardString();
       break;
-    //   case "RQ":
-    //     quote = GetRandomQuote();
+    case "RQ":
+      quote = QuoteFromAPI;
+      break;
   }
   quote.split("").forEach((character) => {
     const characterSpan = document.createElement("span");
